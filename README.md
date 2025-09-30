@@ -16,12 +16,8 @@ Ainsi, ce projet ne se limite pas à une simple construction de base de données
 
 ---
 
-## [📑 Analyse des besoins](./docs/prompt.md)
-- Thématique : explication  
-- Prompt  
-- Résultat IAG  
+<img src="./diagrams/mcd.png" alt="MCD" width="500"/>
 
----
 
 ## [📊 Conception MCD](./diagrams/mcd.png)
 - E/A  
