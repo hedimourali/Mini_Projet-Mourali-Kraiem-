@@ -16,7 +16,7 @@ Ainsi, ce projet ne se limite pas à une simple construction de base de données
 
 ---
 
-<img src="./docs/etape1.jpg" alt="MCD" width="500"/>
+<img src="./docs/etape1.jpg" alt="MCD" width="1500"/>
 
 
 ## [📊 Conception MCD](./diagrams/mcd.png)
