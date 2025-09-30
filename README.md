@@ -150,5 +150,8 @@ Une fois le paiement validé, la réservation est confirmée et les billets éle
 | Mode de paiement               | Moyen de paiement (ex: carte bancaire)            | Texte              | 20             |
 
 ---
+<img src="./docs/etape2.jpg" alt="MCD" width="1500"/>
 
+## [MCD](./projet.loo)
 
+<img src="./docs/projet.jpg" alt="MCD" width="1500"/>
