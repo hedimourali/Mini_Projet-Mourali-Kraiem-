@@ -41,4 +41,114 @@ Enfin, la présentation du travail doit être soignée et professionnelle. Le te
 
 
 ## [🤖 Résultat IAG](./results/ia_result.md)
-Ce fichier regroupe les résultats produits par l’IA à partir du prompt initial.  
+
+
+## 📑 Règles de gestion des données
+
+### ✈️ Gestion des vols
+Chaque vol est identifié par un **numéro de vol unique** composé de 6 caractères alphanumériques.  
+Un vol correspond à une liaison entre un aéroport de départ et un aéroport d’arrivée, définis par leurs **codes IATA**.  
+Il possède une **date et une heure de départ planifiées** ainsi qu’une **heure d’arrivée estimée** (le jour même pour les trajets court-courrier).  
+Chaque vol est opéré par un **avion de la flotte** ; le nombre de sièges disponibles correspond à la capacité de cet avion.
+
+---
+
+### 🛫 Gestion des aéroports
+Chaque aéroport desservi est identifié par un **code IATA unique à 3 lettres**.  
+Pour chaque aéroport, le système stocke également :  
+- le **nom** de l’aéroport  
+- la **ville** et le **pays** où il se situe  
+
+Ces informations permettent d’indiquer les origines et destinations des vols dans le système de réservation.
+
+---
+
+### 🛩️ Gestion des avions
+La compagnie gère une flotte d’avions.  
+Chaque avion est enregistré avec une **immatriculation unique** (ex : F-XXXX).  
+Pour chaque avion, on conserve :  
+- le **modèle** (ex : Airbus A320-200)  
+- le **nombre de sièges disponibles**  
+
+Un avion peut effectuer plusieurs vols au cours du temps, mais un vol donné n’utilise qu’un seul avion.
+
+---
+
+### 🎫 Gestion des réservations
+Les vols sont réservés par les clients via la billetterie en ligne.  
+Chaque réservation est identifiée par un **code de réservation unique** (référence dossier).  
+Une réservation porte sur **un vol spécifique** et peut concerner **un ou plusieurs passagers**.  
+
+Le système enregistre :  
+- la **date et l’heure de la réservation**  
+- les **coordonnées du client** (email, téléphone)  
+
+---
+
+### 👥 Gestion des passagers
+Pour chaque réservation, on enregistre les informations de chaque passager :  
+- **prénom et nom** (obligatoires)  
+- éventuellement la **date de naissance** (tarifs/identité)  
+
+Tous les passagers d’une même réservation voyagent sur le même vol.  
+Chaque passager occupe un siège.
+
+---
+
+### 🧳 Options de services supplémentaires (modèle low-cost)
+Certains services ne sont pas inclus d’office dans le billet de base et sont proposés en **options payantes** :  
+- **Bagages en soute** (nombre, coût supplémentaire par bagage)  
+- **Sélection de siège** (choix d’un numéro précis, supplément)  
+- **Embarquement prioritaire** (embarquer avant les autres passagers)  
+
+Chaque option choisie par un client est enregistrée afin de prévoir les services et de calculer le tarif total.
+
+---
+
+### 💳 Gestion des paiements
+Toute réservation doit être **payée en totalité** au moment de la réservation.  
+Le paiement s’effectue en ligne (ex : carte bancaire).  
+
+Le système enregistre :  
+- le **montant total payé** (billets + options), en euros, avec 2 décimales  
+- la **date du paiement** (souvent identique à la réservation)  
+- le **mode de paiement** utilisé  
+
+Une fois le paiement validé, la réservation est confirmée et les billets électroniques sont émis.
+
+---
+
+## 📊 Dictionnaire de données
+
+| **Nom de la donnée**           | **Signification (en langage simple)**             | **Type**           | **Taille max** |
+|--------------------------------|--------------------------------------------------|--------------------|----------------|
+| Numéro de vol                  | Identifiant unique d’un vol (code alphanumérique) | Texte              | 6              |
+| Date de départ du vol          | Jour de départ prévu du vol                       | Date               | –              |
+| Heure de départ du vol         | Heure de départ prévue (locale)                   | Heure              | –              |
+| Heure d’arrivée du vol         | Heure d’arrivée prévue (locale)                   | Heure              | –              |
+| Immatriculation de l’avion     | Code unique identifiant un avion (ex: F-XXXX)     | Texte              | 6              |
+| Modèle d’avion                 | Modèle/type de l’appareil (ex: Airbus A320)       | Texte              | 30             |
+| Capacité de l’avion            | Nombre total de sièges dans l’avion               | Nombre entier      | 3              |
+| Code IATA de l’aéroport        | Identifiant unique (3 lettres)                    | Texte              | 3              |
+| Nom de l’aéroport              | Nom complet de l’aéroport                         | Texte              | 50             |
+| Ville de l’aéroport            | Ville où se situe l’aéroport                      | Texte              | 50             |
+| Pays de l’aéroport             | Pays où se situe l’aéroport                       | Texte              | 50             |
+| Code de réservation            | Référence unique de la réservation                | Texte              | 6              |
+| Date de réservation            | Date de création de la réservation                | Date               | –              |
+| Heure de réservation           | Heure de création de la réservation               | Heure              | –              |
+| Email de contact               | Adresse e-mail du client                          | Texte              | 50             |
+| Numéro de téléphone            | Numéro de téléphone du client (format int.)       | Texte              | 15             |
+| Prénom du passager             | Prénom tel qu’indiqué                             | Texte              | 30             |
+| Nom du passager                | Nom de famille du passager                        | Texte              | 30             |
+| Date de naissance du passager  | Date de naissance du passager                     | Date               | –              |
+| Nombre de bagages en soute     | Quantité de bagages achetés (0 si aucun)          | Nombre entier      | 1              |
+| Siège sélectionné              | Numéro de siège attribué (si réservé)             | Texte              | 3              |
+| Option sélection de siège      | Si un siège spécifique a été réservé (oui/non)    | Booléen            | –              |
+| Option embarquement prioritaire| Si l’option a été souscrite (oui/non)             | Booléen            | –              |
+| Montant total payé             | Total réglé pour la réservation (avec options)    | Nombre décimal     | 7 (2 décimales)|
+| Date de paiement               | Date du paiement                                  | Date               | –              |
+| Mode de paiement               | Moyen de paiement (ex: carte bancaire)            | Texte              | 20             |
+
+---
+
+
