@@ -19,7 +19,9 @@ Ainsi, ce projet ne se limite pas à une simple construction de base de données
 <img src="./docs/etape1.jpg" alt="MCD" width="1500"/>
 
 
-
+<div style="border: 4px solid #444; background:#f6f8fa; padding:16px; border-radius:12px; margin:12px 0;">
+  <strong>ℹ️ Info :</strong> fond discret + bord épais.
+</div>
 
 ## [📄 Notre Prompt](./docs/prompt.pdf)
 <div style="border:15px solid black; padding: 10px; border-radius: 45px;">
