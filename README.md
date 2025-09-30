@@ -95,7 +95,7 @@ Chaque passager occupe un siège.
 
 ---
 
-### 🧳 Options de services supplémentaires (modèle low-cost)
+###  Options de services supplémentaires (modèle low-cost)
 Certains services ne sont pas inclus d’office dans le billet de base et sont proposés en **options payantes** :  
 - **Bagages en soute** (nombre, coût supplémentaire par bagage)  
 - **Sélection de siège** (choix d’un numéro précis, supplément)  
