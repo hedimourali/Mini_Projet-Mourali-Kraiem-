@@ -45,7 +45,7 @@ Enfin, la présentation du travail doit être soignée et professionnelle. Le te
 
 ## 📑 Règles de gestion des données
 
-### ✈️ Gestion des vols
+###  Gestion des vols
 Chaque vol est identifié par un **numéro de vol unique** composé de 6 caractères alphanumériques.  
 Un vol correspond à une liaison entre un aéroport de départ et un aéroport d’arrivée, définis par leurs **codes IATA**.  
 Il possède une **date et une heure de départ planifiées** ainsi qu’une **heure d’arrivée estimée** (le jour même pour les trajets court-courrier).  
@@ -53,7 +53,7 @@ Chaque vol est opéré par un **avion de la flotte** ; le nombre de sièges disp
 
 ---
 
-### 🛫 Gestion des aéroports
+###  Gestion des aéroports
 Chaque aéroport desservi est identifié par un **code IATA unique à 3 lettres**.  
 Pour chaque aéroport, le système stocke également :  
 - le **nom** de l’aéroport  
@@ -63,7 +63,7 @@ Ces informations permettent d’indiquer les origines et destinations des vols d
 
 ---
 
-### 🛩️ Gestion des avions
+###  Gestion des avions
 La compagnie gère une flotte d’avions.  
 Chaque avion est enregistré avec une **immatriculation unique** (ex : F-XXXX).  
 Pour chaque avion, on conserve :  
@@ -74,7 +74,7 @@ Un avion peut effectuer plusieurs vols au cours du temps, mais un vol donné n�
 
 ---
 
-### 🎫 Gestion des réservations
+###  Gestion des réservations
 Les vols sont réservés par les clients via la billetterie en ligne.  
 Chaque réservation est identifiée par un **code de réservation unique** (référence dossier).  
 Une réservation porte sur **un vol spécifique** et peut concerner **un ou plusieurs passagers**.  
@@ -85,7 +85,7 @@ Le système enregistre :
 
 ---
 
-### 👥 Gestion des passagers
+###  Gestion des passagers
 Pour chaque réservation, on enregistre les informations de chaque passager :  
 - **prénom et nom** (obligatoires)  
 - éventuellement la **date de naissance** (tarifs/identité)  
@@ -105,7 +105,7 @@ Chaque option choisie par un client est enregistrée afin de prévoir les servic
 
 ---
 
-### 💳 Gestion des paiements
+###  Gestion des paiements
 Toute réservation doit être **payée en totalité** au moment de la réservation.  
 Le paiement s’effectue en ligne (ex : carte bancaire).  
 
@@ -118,7 +118,7 @@ Une fois le paiement validé, la réservation est confirmée et les billets éle
 
 ---
 
-## 📊 Dictionnaire de données
+##  Dictionnaire de données
 
 | **Nom de la donnée**           | **Signification (en langage simple)**             | **Type**           | **Taille max** |
 |--------------------------------|--------------------------------------------------|--------------------|----------------|
