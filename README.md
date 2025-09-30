@@ -40,7 +40,7 @@ Enfin, la présentation du travail doit être soignée et professionnelle. Le te
 
 
 
-## [🤖 Résultat IAG](./results/result.pdf)
+## [🤖 Résultat IAG](./results/resulta.pdf)
 
 
 ## 📑 Règles de gestion des données
