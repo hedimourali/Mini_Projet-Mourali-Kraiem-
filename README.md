@@ -18,6 +18,10 @@ Ainsi, ce projet ne se limite pas à une simple construction de base de données
 
 <img src="./docs/etape1.jpg" alt="MCD" width="1500"/>
 
+| 💡 Astuce |
+|-----------|
+| Ceci est du texte encadré dans un tableau. |
+
 ### Nos choix
 Dans la rédaction de ce prompt, nous avons choisi de suivre une structure progressive et logique. Nous avons commencé par poser le contexte avec l’exemple d’EasyJet, afin de montrer clairement le modèle économique et le fonctionnement de l’entreprise. Nous avons ensuite précisé que l’objectif était d’appliquer la méthode MERISE en nous concentrant uniquement sur la phase d’analyse. Le prompt est construit autour de deux parties principales : les règles de gestion rédigées simplement et le dictionnaire de données brutes détaillé, avec des consignes de présentation pour que le résultat soit clair et exploitable. Dans la partie conception, nous avons poursuivi en traduisant ces règles de gestion en un modèle conceptuel des données, ce qui permet de représenter les entités, leurs attributs et leurs relations. Nous avons ensuite affiné ce modèle pour obtenir une organisation cohérente et normalisée, en supprimant les redondances et en respectant la troisième forme normale. Ce choix nous permet d’aboutir à une base de données fiable, claire et adaptée aux besoins de l’entreprise, tout en facilitant les étapes de mise en œuvre.
 
