@@ -18,13 +18,11 @@ Ainsi, ce projet ne se limite pas à une simple construction de base de données
 
 <img src="./docs/etape1.jpg" alt="MCD" width="1500"/>
 
-
-<div style="border: 4px solid black; padding:16px; border-radius:12px; margin:12px 0;">
-  <strong>ℹ️ Info :</strong> fond discret + bord épais.
-</div>
+### [📄 Nos choix]
+Dans la rédaction de ce prompt, nous avons choisi de suivre une structure progressive et logique. Nous avons commencé par poser le contexte avec l’exemple d’EasyJet, afin de montrer clairement le modèle économique et le fonctionnement de l’entreprise. Nous avons ensuite précisé que l’objectif était d’appliquer la méthode MERISE en nous concentrant uniquement sur la phase d’analyse. Le prompt est construit autour de deux parties principales : les règles de gestion rédigées simplement et le dictionnaire de données brutes détaillé, avec des consignes de présentation pour que le résultat soit clair et exploitable. Dans la partie conception, nous avons poursuivi en traduisant ces règles de gestion en un modèle conceptuel des données, ce qui permet de représenter les entités, leurs attributs et leurs relations. Nous avons ensuite affiné ce modèle pour obtenir une organisation cohérente et normalisée, en supprimant les redondances et en respectant la troisième forme normale. Ce choix nous permet d’aboutir à une base de données fiable, claire et adaptée aux besoins de l’entreprise, tout en facilitant les étapes de mise en œuvre.
 
 ## [📄 Notre Prompt](./docs/prompt.pdf)
-<div style="border:15px solid black; padding: 10px; border-radius: 45px;">
+
   
 Tu travailles dans le domaine du transport aérien. Ton entreprise exerce une activité de transport aérien comparable à celle d’EasyJet. EasyJet est une compagnie aérienne britannique fondée en 1995, spécialisée dans le transport aérien à bas coût. Basée principalement à l’aéroport de Londres-Luton, elle dessert aujourd’hui plus de 150 destinations. Son modèle économique repose sur la simplification des services afin de proposer des tarifs attractifs, avec des billets vendus exclusivement en ligne, 
 l’absence de services superflus inclus, et la possibilité pour le client de choisir des options payantes comme les bagages ou la sélection de sièges. EasyJet s’adresse principalement aux voyageurs recherchant des déplacements rapides et économiques, que ce soit pour le tourisme ou les voyages d’affaires.
@@ -36,8 +34,7 @@ Ces règles doivent être rédigées comme si elles étaient expliquées à une 
 afin de bien représenter le modèle économique low-cost adopté par l’entreprise.
 
 Enfin, la présentation du travail doit être soignée et professionnelle. Le texte des règles de gestion doit être rédigé de manière structurée et numérotée afin de pouvoir être facilement réutilisé par la suite. Le dictionnaire de données, quant à lui, doit être présenté sous forme de tableau aligné et lisible, sans redondance, de façon à ce qu’il constitue un support de travail directement exploitable pour la phase suivante de conception. Chaque donnée décrite dans le dictionnaire doit pouvoir être reliée à au moins 
-une règle de gestion.
-</div>
+
 
 
 ## [🤖 Résultat IAG](./results/ia_result.md)
