@@ -1,6 +1,6 @@
 # Prompt_Conception_Base
 
-## [📌 Introduction du projet](./docs/projet.pdf)
+## [ Introduction du projet](./docs/projet.pdf)
 Ce mini-projet a pour objectif de mettre en pratique, de manière concrète et progressive, l’ensemble des étapes de la méthode MERISE, telle qu’elle est enseignée dans ce module et largement utilisée dans l’industrie pour la conception et le développement de bases de données.  
 MERISE est une méthode structurée qui permet de passer des besoins métiers exprimés en langage naturel, vers un modèle logique puis un schéma technique exploitable dans un système d’information réel. Elle offre une démarche rigoureuse, claire et communicable entre les différents acteurs d’un projet (métiers, analystes, développeurs, administrateurs de bases de données).  
 
@@ -14,7 +14,7 @@ Notre objectif est donc double :
 
 Ainsi, ce projet ne se limite pas à une simple construction de base de données : il constitue également un exercice de compréhension des enjeux réels du transport aérien, et une première étape vers une réflexion sur l’amélioration de l’expérience client.  
 
----
+
 
 <img src="./docs/etape1.jpg" alt="MCD" width="1500"/>
 
@@ -40,10 +40,10 @@ Enfin, la présentation du travail doit être soignée et professionnelle. Le te
 
 
 
-## [🤖 Résultat IAG](./docs/resultat.pdf)
+## [ Résultat IAG](./docs/resultat.pdf)
 
 
-## 📑 Règles de gestion des données
+##  Règles de gestion des données
 
 ###  Gestion des vols
 Chaque vol est identifié par un **numéro de vol unique** composé de 6 caractères alphanumériques.  
@@ -51,7 +51,7 @@ Un vol correspond à une liaison entre un aéroport de départ et un aéroport d
 Il possède une **date et une heure de départ planifiées** ainsi qu’une **heure d’arrivée estimée** (le jour même pour les trajets court-courrier).  
 Chaque vol est opéré par un **avion de la flotte** ; le nombre de sièges disponibles correspond à la capacité de cet avion.
 
----
+
 
 ###  Gestion des aéroports
 Chaque aéroport desservi est identifié par un **code IATA unique à 3 lettres**.  
@@ -61,7 +61,7 @@ Pour chaque aéroport, le système stocke également :
 
 Ces informations permettent d’indiquer les origines et destinations des vols dans le système de réservation.
 
----
+
 
 ###  Gestion des avions
 La compagnie gère une flotte d’avions.  
@@ -72,7 +72,7 @@ Pour chaque avion, on conserve :
 
 Un avion peut effectuer plusieurs vols au cours du temps, mais un vol donné n’utilise qu’un seul avion.
 
----
+
 
 ###  Gestion des réservations
 Les vols sont réservés par les clients via la billetterie en ligne.  
@@ -93,7 +93,7 @@ Pour chaque réservation, on enregistre les informations de chaque passager :
 Tous les passagers d’une même réservation voyagent sur le même vol.  
 Chaque passager occupe un siège.
 
----
+
 
 ###  Options de services supplémentaires (modèle low-cost)
 Certains services ne sont pas inclus d’office dans le billet de base et sont proposés en **options payantes** :  
@@ -103,7 +103,7 @@ Certains services ne sont pas inclus d’office dans le billet de base et sont p
 
 Chaque option choisie par un client est enregistrée afin de prévoir les services et de calculer le tarif total.
 
----
+
 
 ###  Gestion des paiements
 Toute réservation doit être **payée en totalité** au moment de la réservation.  
@@ -116,7 +116,7 @@ Le système enregistre :
 
 Une fois le paiement validé, la réservation est confirmée et les billets électroniques sont émis.
 
----
+
 
 ##  Dictionnaire de données
 
@@ -149,7 +149,7 @@ Une fois le paiement validé, la réservation est confirmée et les billets éle
 | Date de paiement               | Date du paiement                                  | Date               | –              |
 | Mode de paiement               | Moyen de paiement (ex: carte bancaire)            | Texte              | 20             |
 
----
+
 <img src="./docs/etape2.jpg" alt="MCD" width="1500"/>
 
 ## [MCD](./projet.loo)
@@ -171,7 +171,7 @@ Tous les attributs doivent être atomiques et tout groupe répété doit être e
 
 Alors le schéma issu du MCD respecte la 1FN : attributs atomiques et répétitions modélisées par des relations dédiées.  
 
----
+
 
 ### 2) Deuxième forme normale (2FN)
 
@@ -182,7 +182,7 @@ Dans les relations à clé composée, aucun attribut non-clé ne doit dépendre 
 Dans le schéma implémenté, toutes les relations ont une clé primaire simple (un seul attribut).  
 Par conséquent, il n’existe aucune dépendance partielle d’attribut non-clé vis-à-vis d’une partie de clé, condition nécessaire pour violer la 2FN.  
 
----
+
 
 ### 3) Troisième forme normale (3FN)
 
@@ -196,7 +196,7 @@ Un schéma est en 3FN si tout attribut non-clé dépend directement de la clé p
 
 Alors la 3FN est respectée.  
 
----
+
 
 ## Contraintes
 
@@ -209,7 +209,7 @@ Une entité faible n’a pas de clé propre sans le support de son entité forte
 - Siège est faible : son identifiant n’a de sens que dans son Avion (clé relative du type (Avion, NuméroDeSiège)). La participation totale à la relation “comporte” garantit qu’aucun siège n’existe sans avion.  
 - L'avion est fort : il possède sa propre clé (immatriculation).  
 
----
+
 
 ### 2) Associations récursives
 
@@ -222,7 +222,7 @@ Une association récursive relie des occurrences d’une même entité avec des 
 - Aéroport ↔ Aéroport (Liaison) : rôles Départ / Arrivée.  
   Le Vol reférence la paire (Départ, Arrivée) via des clés étrangères, sans recopier Ville/Pays (préserve 3FN).  
 
----
+
 
 ### 3) Association n-aire (N > 2)
 
@@ -235,7 +235,7 @@ Affectation de siège par vol et réservation : relier (Vol, Siège, Réservatio
 - Intégrité : Siège référencé doit appartenir à l’Avion du Vol (contrainte inter-relations).  
 - FN : tout attribut ajouté (p. ex. Statut d’attribution, Date d’attribution) dépend de la clé complète → 2FN OK ; aucune duplication d’attributs d’entités → 3FN OK.  
 
----
+
 
 ## Conclusion
 
