@@ -155,3 +155,90 @@ Une fois le paiement validé, la réservation est confirmée et les billets éle
 ## [MCD](./projet.loo)
 
 <img src="./docs/projet.jpg" alt="MCD" width="1500"/>
+
+
+
+## Justification de la normalisation
+
+### 1) Première forme normale (1FN)
+
+**Principe :**  
+Tous les attributs doivent être atomiques et tout groupe répété doit être externalisé dans une relation dédiée donc pas de listes dans une même colonne.  
+
+**Application à notre modèle :**  
+- Les éléments naturellement multivalués (p. ex. “options d’une réservation”) ne sont pas stockés en liste dans la réservation : ils sont matérialisés par une relation d’association (ex. Réservation–option) donc autre table.  
+- Les occurrences répétées dépendant d’une entité (p. ex. “paiements d’une réservation”, “bagages d’un passager”, “sièges d’un avion”) sont portées par des tables séparées plutôt que par des colonnes répétées ou des tableaux dans un même enregistrement.  
+
+Alors le schéma issu du MCD respecte la 1FN : attributs atomiques et répétitions modélisées par des relations dédiées.  
+
+---
+
+### 2) Deuxième forme normale (2FN)
+
+**Principe :**  
+Dans les relations à clé composée, aucun attribut non-clé ne doit dépendre d’une partie seulement de la clé (sinon, dépendance partielle).  
+
+**Application à notre modèle :**  
+Dans le schéma implémenté, toutes les relations ont une clé primaire simple (un seul attribut).  
+Par conséquent, il n’existe aucune dépendance partielle d’attribut non-clé vis-à-vis d’une partie de clé, condition nécessaire pour violer la 2FN.  
+
+---
+
+### 3) Troisième forme normale (3FN)
+
+**Principe :**  
+Un schéma est en 3FN si tout attribut non-clé dépend directement de la clé primaire de sa table. Autrement dit, pas de dépendances transitives.  
+
+**Application à notre modèle :**  
+- Les tables qui portent des clés étrangères (ex. le vol référence uniquement le code de l’aéroport de départ/arrivée) ne recopient pas d’attributs dérivables de ces clés (Nom de l’aéroport, Ville, Pays, etc.).  
+- Ainsi, on évite les dépendances transitives du type :  
+  NumVol → CodeIATA_Depart → Ville/Pays.  
+
+Alors la 3FN est respectée.  
+
+---
+
+## Contraintes
+
+### 1) Entité faible vs entité forte
+
+**Idée clé :**  
+Une entité faible n’a pas de clé propre sans le support de son entité forte ; elle est identifiée relativement et dépend d’existence de l’entité forte.  
+
+**Application :**  
+- Siège est faible : son identifiant n’a de sens que dans son Avion (clé relative du type (Avion, NuméroDeSiège)). La participation totale à la relation “comporte” garantit qu’aucun siège n’existe sans avion.  
+- L'avion est fort : il possède sa propre clé (immatriculation).  
+
+---
+
+### 2) Associations récursives
+
+**Idée clé :**  
+Une association récursive relie des occurrences d’une même entité avec des rôles distincts.  
+
+**Deux illustrations courtes :**  
+- Vol ↔ Vol (Correspondance) : rôles VolPrécédent / VolSuivant.  
+  Bonnes pratiques : interdire les boucles (VolPrécédent ≠ VolSuivant) et garantir la cohérence temporelle (Arrivée(Précédent) < Départ(Suivant)).  
+- Aéroport ↔ Aéroport (Liaison) : rôles Départ / Arrivée.  
+  Le Vol reférence la paire (Départ, Arrivée) via des clés étrangères, sans recopier Ville/Pays (préserve 3FN).  
+
+---
+
+### 3) Association n-aire (N > 2)
+
+**Objectif :**  
+Fournir une association N-air (>2) pertinente, sans dénaturer le chemin d’origine.  
+
+**Exemple :**  
+Affectation de siège par vol et réservation : relier (Vol, Siège, Réservation), avec la contrainte que le Siège appartient à l’Avion qui opère le Vol.  
+- Clé : typiquement (Vol, Siège) (ou (Vol, Avion, NuméroDeSiège) si on veut rendre explicite l’appartenance du siège).  
+- Intégrité : Siège référencé doit appartenir à l’Avion du Vol (contrainte inter-relations).  
+- FN : tout attribut ajouté (p. ex. Statut d’attribution, Date d’attribution) dépend de la clé complète → 2FN OK ; aucune duplication d’attributs d’entités → 3FN OK.  
+
+---
+
+## Conclusion
+
+Le MCD capture correctement les règles métier avec des entités (fortes/faibles) et des associations adéquates (binaires, récursives, éventuellement n-aires), appuyées par des clés et contraintes d’intégrité.  
+
+Traduit en schéma relationnel normalisé en 3FN, il évite les redondances, garantit la cohérence des données et facilite l’évolution et la maintenance.
