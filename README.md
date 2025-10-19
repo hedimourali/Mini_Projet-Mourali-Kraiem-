@@ -244,6 +244,7 @@ Le MCD capture correctement les règles métier avec des entités (fortes/faible
 Traduit en schéma relationnel normalisé en 3FN, il évite les redondances, garantit la cohérence des données et facilite l’évolution et la maintenance.
 
 
+
 ##  Scénario : Optimisation et rentabilité des vols
 
 Notre compagnie aérienne  souhaite améliorer la **rentabilité** et l’**efficacité opérationnelle** de ses vols  
@@ -258,5 +259,8 @@ Grâce à cette base de données il devient possible d’identifier les vols les
 Le **modèle de données** comprend plusieurs entités essentielles telles que les **avions**, les **aéroports**, les **vols**, les **passagers**, les **réservations**, les **paiements**, les **options**, les **sièges** et les **bagages**  
 Ces informations permettent d’obtenir une **vision complète** du fonctionnement de la compagnie et de produire des analyses précises sur le **remplissage**, les **revenus** et la **performance des vols**  
 
-L’exploitation de cette base permettra à **SkyLink Airways** de baser ses décisions sur des **données fiables** et de renforcer sa **compétitivité** en planifiant ses ressources de manière plus efficace tout en améliorant l’expérience et la satisfaction de ses passagers  
+L’exploitation de cette base permettra à la companie de baser ses décisions sur des **données fiables** et de renforcer sa **compétitivité** en planifiant ses ressources de manière plus efficace tout en améliorant l’expérience et la satisfaction de ses passagers  
+
+
+
 
