@@ -242,3 +242,21 @@ Affectation de siège par vol et réservation : relier (Vol, Siège, Réservatio
 Le MCD capture correctement les règles métier avec des entités (fortes/faibles) et des associations adéquates (binaires, récursives, éventuellement n-aires), appuyées par des clés et contraintes d’intégrité.  
 
 Traduit en schéma relationnel normalisé en 3FN, il évite les redondances, garantit la cohérence des données et facilite l’évolution et la maintenance.
+
+
+##  Scénario : Optimisation et rentabilité des vols
+
+Notre compagnie aérienne  souhaite améliorer la **rentabilité** et l’**efficacité opérationnelle** de ses vols  
+Son activité principale consiste à transporter des passagers entre de grandes villes internationales en gérant une flotte d’avions des vols réguliers tout au long de l’année ainsi que la gestion des **réservations**, des **paiements**, des **bagages** et des **options complémentaires** comme les sièges XL ou les bagages supplémentaires  
+
+Jusqu’à présent les données de la compagnie étaient dispersées dans différents fichiers Excel et formulaires internes ce qui rendait difficile l’analyse globale de son activité  
+Le projet vise donc à **concevoir une base de données centralisée** permettant de suivre l’ensemble des opérations de la compagnie afin d’analyser les **taux de remplissage**, la **rentabilité des vols** et la **demande des passagers**  
+
+L’objectif est de fournir un **outil complet d’aide à la décision** pour optimiser la planification des vols et améliorer la rentabilité globale  
+Grâce à cette base de données il devient possible d’identifier les vols les plus rentables de repérer ceux qui sont sous-occupés d’étudier les habitudes de réservation des passagers d’évaluer les recettes moyennes par destination et d’ajuster les ressources disponibles comme les avions et les équipages  
+
+Le **modèle de données** comprend plusieurs entités essentielles telles que les **avions**, les **aéroports**, les **vols**, les **passagers**, les **réservations**, les **paiements**, les **options**, les **sièges** et les **bagages**  
+Ces informations permettent d’obtenir une **vision complète** du fonctionnement de la compagnie et de produire des analyses précises sur le **remplissage**, les **revenus** et la **performance des vols**  
+
+L’exploitation de cette base permettra à **SkyLink Airways** de baser ses décisions sur des **données fiables** et de renforcer sa **compétitivité** en planifiant ses ressources de manière plus efficace tout en améliorant l’expérience et la satisfaction de ses passagers  
+
